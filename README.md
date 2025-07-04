@@ -1,13 +1,12 @@
 <div align="center">
-  <h3 align="center">Rolex Submarine Website</h3>
+  <h3 align="center">DashPilot - Admin Dashboard Website</h3>
 </div>
 
 ## 📋 <a name="table">Table of Contents</a>
 
 1. [Introduction](#introduction)
 2. [Tech Stack](#tech-stack)
-3. [Features](#features)
-4. [Quick Start](#quick-start)
+3. [Quick Start](#quick-start)
 
 ## <a name="introduction">Introduction</a>
 
@@ -36,7 +35,7 @@ Make sure you have the following installed on your machine:
 
 ```bash
 git clone https://github.com/shweta-dsouza/admin-website.git
-cd rolex-submariner
+cd admin-website
 ```
 
 **Installation**
