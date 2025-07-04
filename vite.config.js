@@ -20,8 +20,8 @@ export default defineConfig({
           if (id.includes('src/components/')) {
             return 'components'; // Split components into their own chunk
           }
-        },
-      },
-    },
+        }
+      }
+    }
   }
 })
