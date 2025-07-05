@@ -1,4 +1,5 @@
-import { useTheme } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { ResponsiveBar } from "@nivo/bar";
 import { BAR_DATA } from "../constants";
 import { palette } from "../theme";
@@ -6,13 +7,14 @@ import { palette } from "../theme";
 const Bar = ({ isDashboard = false }) => {
   const theme = useTheme();
   const colors = palette(theme.palette.mode);
+	const isSmallScreen = useMediaQuery("(max-width:750px)");
 
   return (
     <ResponsiveBar
       data={BAR_DATA}
       indexBy="country"
       padding={0.3}
-      enableLabel={isDashboard ? false : true}
+      enableLabel={(isDashboard || isSmallScreen) ? false : true}
       enableGridY={isDashboard ? false : true}
       labelSkipWidth={4}
       labelSkipHeight={12}
@@ -26,7 +28,7 @@ const Bar = ({ isDashboard = false }) => {
             direction: 'column',
             translateX: 120,
             itemsSpacing: 3,
-            itemWidth: 100,
+            itemWidth: 70,
             itemHeight: 20,
             itemOpacity: 0.85,
             toggleSerie: true,

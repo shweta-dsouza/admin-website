@@ -1,11 +1,13 @@
 import { ResponsivePie } from '@nivo/pie'
-import { useTheme } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { palette } from "../theme";
 import { PIE_DATA } from "../constants";
 
 const Pie = ({ isDashboard = false }) => {
     const theme = useTheme();
     const colors = palette(theme.palette.mode);
+	const isSmallScreen = useMediaQuery("(max-width:610px)");
 
     return (
         <ResponsivePie
@@ -14,7 +16,8 @@ const Pie = ({ isDashboard = false }) => {
             innerRadius={0.5}
             padAngle={1}
             cornerRadius={isDashboard ? 2 : 3}
-            enableArcLabels={isDashboard ? false : true}
+            enableArcLabels={(isDashboard || isSmallScreen) ? false : true}
+            enableArcLinkLabels={isSmallScreen ? false : true}
             activeOuterRadiusOffset={8}
             arcLinkLabelsSkipAngle={10}
             arcLinkLabelsTextColor={colors.grey[400]}
@@ -28,7 +31,7 @@ const Pie = ({ isDashboard = false }) => {
                 isDashboard ? undefined :
                 [{
                     anchor: 'bottom',
-                    direction: 'row',
+                    direction: isSmallScreen ? 'column' : 'row',
                     translateY: 56,
                     itemWidth: 100,
                     itemHeight: 20,

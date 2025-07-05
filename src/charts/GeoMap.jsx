@@ -1,5 +1,5 @@
 import { ResponsiveChoropleth } from '@nivo/geo';
-import { useTheme } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 import { palette } from "../theme";
 import { GEO_DATA, GEO_FEATURES } from "../constants";
 

@@ -1,6 +1,7 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useTheme } from '@mui/material/styles';
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { Sidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
@@ -96,6 +97,7 @@ const SideBar = () => {
 	const colors = palette(theme.palette.mode);
 	const location = useLocation();
 	const pageName = location.pathname.split('/')[1];
+	const isMobile = useMediaQuery("(max-width:670px)");
 	const [collapsed, setCollapsed] = useState(false);
 	const [activeMenu, setActiveMenu] = useState(pageName);
 
@@ -105,7 +107,7 @@ const SideBar = () => {
 
 	return (
 		<Sidebar
-			collapsed={collapsed}
+			collapsed={isMobile ? true : collapsed}
 			backgroundColor={colors.blue[200]}
 			rootStyles={{
 				border: "none",
@@ -130,8 +132,9 @@ const SideBar = () => {
 					aria-label='dash-pilot'
 					onClick={() => setCollapsed((prev) => !prev)}
 					icon={<MenuOutlinedIcon />}
+					disabled={isMobile ? true : false}
 				>
-					{!collapsed && (
+					{!isMobile && !collapsed && (
 						<Box
 							display="flex"
 							justifyContent="space-between"
@@ -145,7 +148,7 @@ const SideBar = () => {
 					)}
 				</MenuItem>
 
-				{!collapsed && (
+				{!isMobile && !collapsed && (
 					<Box m={2}>
 						<Box display="flex" justifyContent="center" alignItems="center">
 							<img alt='profile-pic' width="100px" height="100px" src={userAvatar} loading="lazy"

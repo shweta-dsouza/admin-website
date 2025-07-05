@@ -1,20 +1,22 @@
 import { ResponsiveLine } from "@nivo/line";
-import { useTheme } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
 import { palette } from "../theme";
 import { LINE_DATA } from "../constants";
 
 const Line = ({ isDashboard = false }) => {
     const theme = useTheme();
     const colors = palette(theme.palette.mode);
+	const isSmallScreen = useMediaQuery("(max-width:900px)");
 
     return (
         <ResponsiveLine
             data={LINE_DATA}
-            margin={{ top: 50, right: 110, bottom: 50, left: 60 }}
+            margin={{ top: 40, right: 110, bottom: 60, left: 60 }}
             yScale={{ type: 'linear', min: 'auto', max: 'auto', stacked: true, reverse: false }}
             xScale={{ type: "point" }}
             curve="cardinal"
-            axisBottom={{ legend: 'Transportation', legendOffset: 36 }}
+            axisBottom={{ legend: isSmallScreen ? null : 'Transportation', legendOffset: 36, tickRotation: isSmallScreen ? -90 : 0 }}
             axisLeft={{ legend: 'Count', legendOffset: -40, tickValues: 5, tickSize: 3, tickPadding: 5 }}
             enableGridX={false}
             enableGridY={false}
