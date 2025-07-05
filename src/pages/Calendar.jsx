@@ -48,7 +48,7 @@ const Calendar = () => {
 		<Box m={2}>
 			<Typography variant='h3'> Calendar </Typography>
 
-			<Box display="flex" justifyContent="space-between" mt={3}>
+			<Box display="flex" justifyContent="space-between" mt={3} overflow="auto">
 				{/* EVENTS LIST */}
 				<Box flex="1 1 20%" p={1} backgroundColor={colors.blue[400]}>
 					<Typography variant="h5">Events</Typography>
