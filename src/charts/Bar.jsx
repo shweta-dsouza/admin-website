@@ -46,9 +46,6 @@ const Bar = ({ isDashboard = false }) => {
       valueFormat=" >-$"
       role="application"
       ariaLabel="bar chart"
-      barAriaLabel={function (e) {
-        return e.id + ": " + e.formattedValue + " in country: " + e.indexValue;
-      }}
       theme={{
         // added
         axis: {
