@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import App from "./App";
 import Dashboard from "./pages/Dashboard";
-import PageNotFound from "./pages/PageNotFound";
+const PageNotFound = lazy(() => import("./pages/PageNotFound"));
 const Users = lazy(() => import("./pages/Users"));
 const CreateUser = lazy(() => import("./pages/CreateUser"));
 const Calendar = lazy(() => import("./pages/Calendar"));
