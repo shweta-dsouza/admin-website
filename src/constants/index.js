@@ -1,5 +1,33 @@
 const todayStr = new Date().toISOString().replace(/T.*$/, '') // YYYY-MM-DD of today
 
+export const NOTIFICATION_DATA = [
+  {
+    title: "New order placed",
+    desc: "Order #12345 has been placed by John Doe.",
+    time: "5 seconds ago"
+  },
+  {
+    title: "Low sales alert",
+    desc: "Warning: Sales for this week are down 20% compared to last week.",
+    time: "12 mins ago"
+  },
+  {
+    title: "Out of stock alert",
+    desc: "Product ABC is now out of stock.",
+    time: "an hour ago"
+  },
+  {
+    title: "Payment received",
+    desc: "$500 received from invoice #INV-0031.",
+    time: "6 hours ago"
+  }, 
+  {
+    title: "New customer registered",
+    desc: "New customer sign-up: Jane Smith.",
+    time: "yesterday"
+  }
+];
+
 export const INITIAL_EVENTS = [
 	{
 		id: '001',
@@ -13,7 +41,7 @@ export const INITIAL_EVENTS = [
 	}
 ];
 
-export const FAQData = [
+export const FAQ_DATA = [
 	{
 		title: "Example Question 1",
 		desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."
