@@ -18,12 +18,16 @@ const Users = () => {
     const [sortOption, setSortOption] = useState({ sortBy: "firstName", order: "asc" });
     const [sortDebounceHandler, setSortDebounceHandler] = useState(sortOption);
 
-    const { data, isLoading } = useGetUsersQuery(
+    const { data, isLoading, isError, error } = useGetUsersQuery(
         debounceHandler.page,
         debounceHandler.pageSize,
         sortDebounceHandler.sortBy,
         sortDebounceHandler.order
     );
+
+    if (isError) {
+        return <span>Error: {error.message}</span>
+    }
 
     useEffect(() => {
         const handler = setTimeout(() => {

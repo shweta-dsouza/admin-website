@@ -11,7 +11,7 @@ const SnackBar = lazy(() => import("../components/SnackBar"));
 
 const CreateUser = () => {
 	const isDesktop = useMediaQuery("(min-width:600px)");
-	const { isPending, mutate } = useAddUserQuery();
+	const { isPending, mutate, isError, error } = useAddUserQuery();
 	const [open, setOpen] = useState(false);
 
 	const handleFormSubmit = (values) => {
@@ -82,7 +82,11 @@ const CreateUser = () => {
 				)}
 			</Formik>
 
-			<SnackBar open={open} handleClose={handleClose} message={"User Created Successfully"} />
+			<SnackBar 
+				open={open} 
+				handleClose={handleClose} 
+				message={isError ? error.message : "User Created Successfully"} 
+			/>
 		</Box>
 	)
 }
