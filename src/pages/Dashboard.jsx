@@ -9,6 +9,7 @@ import Chip from '@mui/material/Chip';
 import DownloadOutlinedIcon from "@mui/icons-material/DownloadOutlined";
 import StatTiles from '../components/StatTiles';
 import { stats, transactions } from '../constants/dashboardConst';
+import Tooltip from '@mui/material/Tooltip';
 const Line = lazy(() => import("../charts/Line"));
 const Bar = lazy(() => import("../charts/Bar"));
 const Pie = lazy(() => import("../charts/Pie"));
@@ -20,17 +21,17 @@ const Dashboard = () => {
 
     return (
         <Box m={2}>
-            <Box my={3} display="flex" 
-                justifyContent={{xs:"flex-start", sm:"space-between"}} 
-                alignItems={{xs:"flex-start", sm:"center"}}
-                flexDirection={{xs: 'column', sm:"row"}} 
+            <Box my={3} display="flex"
+                justifyContent={{ xs: "flex-start", sm: "space-between" }}
+                alignItems={{ xs: "flex-start", sm: "center" }}
+                flexDirection={{ xs: 'column', sm: "row" }}
             >
                 <>
                     <Typography variant='h3'>Dashboard</Typography>
-                    <Button aria-label='download all reports' 
-                        sx={{ 
-                            backgroundColor: colors.blue[300], 
-                            color: colors.grey[100], 
+                    <Button aria-label='download all reports'
+                        sx={{
+                            backgroundColor: colors.blue[300],
+                            color: colors.grey[100],
                             padding: "8px 16px",
                             [theme.breakpoints.down('sm')]: {
                                 padding: "4px",
@@ -49,7 +50,7 @@ const Dashboard = () => {
                 {stats.map((stat, idx) => (
                     <Box
                         key={idx}
-                        gridColumn={{xs:"span 12", sm:"span 6", lg: "span 3"}}
+                        gridColumn={{ xs: "span 12", sm: "span 6", lg: "span 3" }}
                         backgroundColor={colors.blue[200]}
                         display="flex"
                         justifyContent="space-between"
@@ -68,7 +69,7 @@ const Dashboard = () => {
                 ))}
 
                 {/* SECOND ROW - REVENUE CHART BOX */}
-                <Box gridColumn={{xs:"span 12", lg: "span 8"}} gridRow="span 2"
+                <Box gridColumn={{ xs: "span 12", lg: "span 8" }} gridRow="span 2"
                     sx={{
                         borderRadius: 1,
                         boxShadow: `2px 2px 5px 0px ${colors.extra.shadow}`,
@@ -91,9 +92,11 @@ const Dashboard = () => {
                                 $ 105,788
                             </Typography>
                         </Box>
-                        <IconButton aria-label='download revenue generated report'>
-                            <DownloadOutlinedIcon />
-                        </IconButton>
+                        <Tooltip title="Download Revenue Report">
+                            <IconButton aria-label='download revenue generated report'>
+                                <DownloadOutlinedIcon />
+                            </IconButton>
+                        </Tooltip>
                     </Box>
                     <Box height="270px" width="110%" mt={-3}>
                         <Line isDashboard={true} />
@@ -102,7 +105,7 @@ const Dashboard = () => {
 
                 {/* SECOND ROW - TRANSACTIONS */}
                 <Box
-                    gridColumn={{xs:"span 12", lg: "span 4"}}
+                    gridColumn={{ xs: "span 12", lg: "span 4" }}
                     gridRow="span 2"
                     sx={{
                         borderRadius: 1,
@@ -161,7 +164,7 @@ const Dashboard = () => {
 
                 {/* THIRD ROW - SALES BY PRODUCT */}
                 <Box
-                    gridColumn={{xs:"span 12",md:"span 6", lg: "span 4"}}
+                    gridColumn={{ xs: "span 12", md: "span 6", lg: "span 4" }}
                     gridRow="span 2"
                     sx={{
                         borderRadius: 1,
@@ -179,7 +182,7 @@ const Dashboard = () => {
 
                 {/* THIRD ROW - SALES QUANTITY */}
                 <Box
-                    gridColumn={{xs:"span 12", md:"span 6", lg: "span 4"}}
+                    gridColumn={{ xs: "span 12", md: "span 6", lg: "span 4" }}
                     gridRow="span 2"
                     sx={{
                         borderRadius: 1,
@@ -190,7 +193,7 @@ const Dashboard = () => {
                     <Typography variant="h5" color={colors.accent[300]}>
                         Sales By Region
                     </Typography>
-                    
+
                     <Box height="280px" width="100%" mt={-3}>
                         <GeoMap isDashboard={true} />
                     </Box>
@@ -198,7 +201,7 @@ const Dashboard = () => {
 
                 {/* THIRD ROW - SALES BY REGION */}
                 <Box
-                    gridColumn={{xs:"span 12", lg: "span 4"}}
+                    gridColumn={{ xs: "span 12", lg: "span 4" }}
                     gridRow="span 2"
                     sx={{
                         borderRadius: 1,
@@ -209,7 +212,7 @@ const Dashboard = () => {
                     <Typography variant="h5" color={colors.accent[300]}>
                         Sales Quantity
                     </Typography>
-                    <Box height="270px" width={{xs:"130%", sm:"110%", lg:"130%"}} mt={-1}>
+                    <Box height="270px" width={{ xs: "130%", sm: "110%", lg: "130%" }} mt={-1}>
                         <Bar isDashboard={true} />
                     </Box>
                 </Box>

@@ -6,7 +6,7 @@ import Box from "@mui/material/Box";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { useTheme } from '@mui/material/styles';
 import { palette } from "../theme";
-import { FAQData } from "../constants";
+import { FAQ_DATA } from "../constants";
 
 const FAQ = () => {
     const theme = useTheme();
@@ -17,7 +17,7 @@ const FAQ = () => {
             <Typography variant='h3'> Frequently Asked Questions </Typography>
 
             <Box mt={4}>
-                {FAQData.map ((data) => (
+                {FAQ_DATA.map ((data) => (
                     <Accordion 
                         slotProps={{ transition: { unmountOnExit: true } }} 
                         key={data.title}
