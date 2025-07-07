@@ -20,6 +20,12 @@ export default defineConfig({
           if (id.includes('src/components/')) {
             return 'components'; // Split components into their own chunk
           }
+          if (id.includes('src/charts/')) {
+            return 'charts'; // Split components into their own chunk
+          }
+          if (id.includes('src/pages/')) {
+            return 'pages'; // Split components into their own chunk
+          }
         }
       }
     }
