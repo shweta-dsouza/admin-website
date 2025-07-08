@@ -32,7 +32,7 @@ const Users = () => {
     useEffect(() => {
         const handler = setTimeout(() => {
             setDebounceHandler(paginationModel)
-        }, 300);
+        }, 100);
         return () => clearTimeout(handler);
     }, [paginationModel]);
 
