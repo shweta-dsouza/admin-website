@@ -12,7 +12,6 @@ export const useGetUsersQuery = (page, pageSize, sortBy, order) => {
       }
       return response.json();
     },
-    keepPreviousData: true,
     retry: 1,
     staleTime: 1000 * 60 * 5, // 5 minutes
   })
