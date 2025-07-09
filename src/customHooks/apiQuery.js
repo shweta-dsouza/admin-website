@@ -1,4 +1,4 @@
-import { useQuery, useMutation } from '@tanstack/react-query'
+import { useQuery, useMutation, keepPreviousData } from '@tanstack/react-query'
 
 const baseUrl = "https://dummyjson.com/users";
 export const useGetUsersQuery = (page, pageSize, sortBy, order) => {
@@ -13,6 +13,7 @@ export const useGetUsersQuery = (page, pageSize, sortBy, order) => {
       return response.json();
     },
     retry: 1,
+    placeholderData: keepPreviousData,
     staleTime: 1000 * 60 * 5, // 5 minutes
   })
 }

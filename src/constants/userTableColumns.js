@@ -7,7 +7,7 @@ export const userColumns = [
     { field: "email", headerName: "Mail ID", flex: 1 },
     { field: "phone", headerName: "Phone", flex: 1, sortable: false  },
     { field: "birthDate", headerName: "DOB" },
-    { field: "department", headerName: "Department", flex: 1 , renderCell: (params) => params.row.company.department, sortable: false },
-    { field: "title", headerName: "Designation", flex: 1 , renderCell: (params) => params.row.company.title, sortable: false },
-    { field: "country", headerName: "Country", flex: 1 , renderCell: (params) => params.row.address.country, sortable: false }
+    { field: "department", headerName: "Department", flex: 1 , renderCell: (params) => params.row.company.department, sortable: false, filterable: false, disableColumnMenu: true },
+    { field: "title", headerName: "Designation", flex: 1 , renderCell: (params) => params.row.company.title, sortable: false, filterable: false, disableColumnMenu: true },
+    { field: "country", headerName: "Country", flex: 1 , renderCell: (params) => params.row.address.country, sortable: false, filterable: false, disableColumnMenu: true }
 ]
