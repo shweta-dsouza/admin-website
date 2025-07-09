@@ -14,34 +14,34 @@ const Users = () => {
     const theme = useTheme();
     const colors = palette(theme.palette.mode);
     const [paginationModel, setPaginationModel] = useState({ pageSize: 30, page: 0 });
-    const [debounceHandler, setDebounceHandler] = useState(paginationModel);
+    // const [debounceHandler, setDebounceHandler] = useState(paginationModel);
     const [sortOption, setSortOption] = useState({ sortBy: "firstName", order: "asc" });
-    const [sortDebounceHandler, setSortDebounceHandler] = useState(sortOption);
+    // const [sortDebounceHandler, setSortDebounceHandler] = useState(sortOption);
 
     const { data, isLoading, isError, error } = useGetUsersQuery(
-        debounceHandler.page,
-        debounceHandler.pageSize,
-        sortDebounceHandler.sortBy,
-        sortDebounceHandler.order
+        paginationModel.page,
+        paginationModel.pageSize,
+        sortOption.sortBy,
+        sortOption.order
     );
 
     if (isError) {
         return <span>Error: {error.message}</span>
     }
 
-    useEffect(() => {
-        const handler = setTimeout(() => {
-            setDebounceHandler(paginationModel)
-        }, 100);
-        return () => clearTimeout(handler);
-    }, [paginationModel]);
+    // useEffect(() => {
+    //     const handler = setTimeout(() => {
+    //         setDebounceHandler(paginationModel)
+    //     }, 100);
+    //     return () => clearTimeout(handler);
+    // }, [paginationModel]);
 
-    useEffect(() => {
-        const sortHandler = setTimeout(() => {
-            setSortDebounceHandler(sortOption)
-        }, 300);
-        return () => clearTimeout(sortHandler);
-    }, [sortOption]);
+    // useEffect(() => {
+    //     const sortHandler = setTimeout(() => {
+    //         setSortDebounceHandler(sortOption)
+    //     }, 300);
+    //     return () => clearTimeout(sortHandler);
+    // }, [sortOption]);
 
     const handleSortModelChange = useCallback((sortModel) => {
         sortModel.length && setSortOption({ sortBy: sortModel[0]?.field, order: sortModel[0]?.sort });
